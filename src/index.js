@@ -46,6 +46,10 @@ const pizzaData = [
     soldOut: false,
   },
 ];
+const hour = new Date().getHours();
+const openHour = 12;
+const closeHour = 23;
+const isOpen = hour >= openHour && hour <= closeHour;
 
 function App() {
   return (
@@ -91,7 +95,7 @@ function Menu() {
 }
 
 function Pizza(props) {
-  // if (props.pizzaObject.soldOut) return null;
+  if (props.pizzaObject.soldOut) return null;
   return (
     <li className="pizza">
       <img src={props.pizzaObject.photoName} alt={props.pizzaObject.name} />
@@ -105,10 +109,6 @@ function Pizza(props) {
 }
 
 function Footer() {
-  const hour = new Date().getHours();
-  const openHour = 12;
-  const closeHour = 23;
-  const isOpen = hour >= openHour && hour <= closeHour;
   console.log(isOpen);
 
   //   alert(
@@ -126,10 +126,7 @@ function Footer() {
   return (
     <footer className="footer">
       {isOpen ? (
-        <div className="order">
-          <p>We're open untill {closeHour}:00. come visit us or order online</p>
-          <button className="btn">Order</button>
-        </div>
+        <Order />
       ) : (
         <p>
           We're happy to welcome you between {openHour}:00 and {closeHour}:00
@@ -137,6 +134,15 @@ function Footer() {
       )}
       {/* {new Date().toLocaleTimeString()}.We're currently open */}
     </footer>
+  );
+}
+
+function Order() {
+  return (
+    <div className="order">
+      <p>We're open untill {closeHour}:00. come visit us or order online</p>
+      <button className="btn">Order</button>
+    </div>
   );
 }
 
