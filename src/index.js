@@ -58,7 +58,7 @@ function App() {
 }
 
 function Header() {
-  //   const style = { color: "red", fontSize: "48px", textTransform: "uppercase" };
+  // const style = { color: "red", fontSize: "48px", textTransform: "uppercase" };
   const style = {};
 
   return (
@@ -122,7 +122,6 @@ function Footer() {
   const openHour = 12;
   const closeHour = 23;
   const isOpen = hour >= openHour && hour <= closeHour;
-  console.log(isOpen);
 
   //   alert(
   //     hour >= openHour && hour <= closeHour
